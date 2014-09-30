@@ -1602,6 +1602,12 @@
 			if (!o.keyboardNavBy) {
 				return;
 			}
+			
+			// don't navigate when focused on elements that might need keyboard navigation.
+		        if(!$.inArray(document.activeElement.nodeName, interactiveElements)){
+		           return;
+		        }
+
 
 			switch (event.which) {
 				// Left or Up
